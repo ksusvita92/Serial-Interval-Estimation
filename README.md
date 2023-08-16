@@ -1,4 +1,4 @@
-# Serial-Interval-Estimation
+# Serial Interval Estimation
 *Application of package **siestim***
 
 
