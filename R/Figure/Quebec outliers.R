@@ -29,7 +29,8 @@ dt_fit <- data.frame(x = seq(0, 16, length.out = 100)) %>%
 
 pl1 <- ggplot() + stat_boxplot(aes(y = h1n1$quebec), coef = cf) +
   labs(y = "") + coord_flip() + theme_light() +
-  theme(axis.text.y = element_blank(),
+  theme(axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 10),
         axis.ticks.y = element_blank())
 
 dt_hist <- data.frame(x=h1n1$quebec) %>%
@@ -42,8 +43,10 @@ pl2 <- ggplot() + geom_bar(aes(x, d, fill = col), dt_hist, stat = "identity", co
   scale_y_continuous(sec.axis = sec_axis(~.*length(h1n1$quebec), name = "count")) +
   scale_fill_manual(values = c("normal"="white","outlier"="black")) +
   scale_color_manual(values = c("with outlier"="red", "without outlier"="blue")) +
-  labs(x = "", y="density") + theme_light() + theme(legend.position = "none")
+  labs(x = "days", y="density") + theme_light() + theme(legend.position = "none")
 
-(pl1 + pl2) + plot_layout(ncol = 1, heights = c(1,4), widths = c(1,1))
+(pl1 + pl2) + plot_layout(ncol = 1, heights = c(1,4), widths = c(1,1)) +
+  theme(axis.title = element_text(size = 12),
+        axis.text = element_text(size = 12))
 
 
