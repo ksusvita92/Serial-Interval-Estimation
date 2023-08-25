@@ -29,5 +29,9 @@ plt <- ggplot() +
                   (1-our_par[4])*dfgd(x, our_par[1], our_par[2])),
             col = "red") +
   geom_line(aes(x = x, y = f), icc_dt, col = "blue") +
-  labs(x = "", y = "density") + theme_light()
-plt
+  labs(x = "days", y = "density") + theme_light()
+plt +
+  theme(axis.title = element_text(size = 12),
+        axis.text = element_text(size = 12))
+
+
