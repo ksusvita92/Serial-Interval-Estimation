@@ -53,4 +53,6 @@ plt <- plt +
   geom_line(aes(x = x, y = fc), txx, col = "dark green") +
   geom_line(aes(x = x, y = fnc), txx, col = "blue") +
   geom_line(aes(x = x, y = fx), txx, col = "red")
-plt + labs(y = "density", x = "")
+plt + labs(y = "density", x = "days") +
+  theme(axis.title = element_text(size = 12),
+        axis.text = element_text(size = 12))
