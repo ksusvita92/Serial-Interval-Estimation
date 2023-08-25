@@ -27,16 +27,18 @@ plt <- ggplot() +
   geom_line(aes(x = x, y = fx, group = pi, col = as.factor(pi)), dt) +
   geom_line(aes(x = x, y = dgamma(x, (par[1]/par[2])^2, par[1]/par[2]^2)), lty = "dashed") +
   labs(y = "density", x = "") + theme_light() +
-  theme(legend.position = "bottom")
+  theme(legend.position = "bottom") +
+  guides(color = guide_legend(override.aes = list(lwd = 1.5), title = expression(pi)))
 
 plt2 <- ggplot() +
   geom_line(aes(x = x, y = px, group = pi, col = as.factor(pi)), dt) +
   geom_line(aes(x = x, y = pgamma(x, (par[1]/par[2])^2, par[1]/par[2]^2)), lty = "dashed") +
-  labs(y = "cumulative density", x = "") + theme_light() +
-  theme(legend.position = "bottom")
+  labs(y = "cumulative distribution", x = "") + theme_light() +
+  theme(legend.position = "bottom") +
+  guides(color = guide_legend(override.aes = list(lwd = 1.5), title = expression(pi)))
 
 (plt+plt2) + plot_layout(nrow = 1, guides = "collect") &
-  theme(legend.title = element_blank(),
+  theme(legend.title = element_text(size = 14),
         axis.text = element_text(size = 12),
         axis.title = element_text(size = 12),
         legend.text = element_text(size = 12),
