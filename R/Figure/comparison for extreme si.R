@@ -64,7 +64,9 @@ createplt <- function(data) {
     
     if(prop == .3) plt <- plt + labs(y = "density", x = "")
     else plt <- plt + labs(y = "", x = "")
-    plt
+    plt +
+      theme(axis.title = element_text(size = 12),
+            axis.text = element_text(size = 12))
     
   })
 }
