@@ -32,5 +32,10 @@ ggplot(outbreak$dynam %>% mutate(t = 0:100)) +
                                 "2" = "Recovered"),
                      name = "") +
   labs(x = "days", y = "count") +
-  theme_light() + theme(legend.position = "bottom",
-                        legend.text = element_text(size = 11))
+  theme_light() + 
+  theme(legend.position = "bottom",
+        legend.text = element_text(size = 12),
+        axis.text = element_text(size = 12),
+        axis.title = element_text(size = 12))
+
+
