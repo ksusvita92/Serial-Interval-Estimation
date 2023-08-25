@@ -22,7 +22,7 @@ mu_cov <- exp1_cov %>%
   geom_line(aes(as.factor(round(N)), cov_mu, group = scenario, col = scenario), alpha = .4, lty = "dashed") +
   #geom_bar(aes(as.factor(round(N)), mu, fill = scenario), stat = "identity", position = "fill") +
   geom_hline(aes(yintercept = .9), alpha = .4) +
-  ylim(c(0,1)) + xlab("N") + ylab("") +
+  ylim(c(0,1)) + xlab("N") + ylab("probability") +
   ggtitle(expression(paste("Coverage probability of ", hat(mu)))) +
   theme_light() +
   theme(legend.title = element_blank(),
@@ -42,7 +42,7 @@ sigma_cov <- exp1_cov %>%
   geom_line(aes(as.factor(round(N)), cov_sigma, group = scenario, col = scenario), alpha = .4, lty = "dashed") +
   #geom_bar(aes(as.factor(round(N)), sigma, fill = scenario), stat = "identity", position = "fill") +
   geom_hline(aes(yintercept = .9), alpha = .4) +
-  ylim(c(0,1)) + xlab("N") + ylab("") +
+  ylim(c(0,1)) + xlab("N") + ylab("probability") +
   ggtitle(expression(paste("Coverage probability of ", hat(sigma)))) +
   theme_light() +
   theme(legend.title = element_blank(),
@@ -62,7 +62,7 @@ pi_cov <- exp1_cov %>%
   geom_line(aes(as.factor(round(N)), cov_pi, group = scenario, col = scenario), alpha = .4, lty = "dashed") +
   #geom_bar(aes(as.factor(round(N)), pi, fill = scenario), stat = "identity", position = "fill") +
   geom_hline(aes(yintercept = .9), alpha = .4) +
-  ylim(c(0,1)) + xlab("N") + ylab("") +
+  ylim(c(0,1)) + xlab("N") + ylab("probability") +
   ggtitle(expression(paste("Coverage probability of ", hat(pi)))) +
   theme_light() +
   theme(legend.title = element_blank(),
@@ -82,7 +82,7 @@ w_cov <- exp1_cov %>%
   geom_line(aes(as.factor(round(N)), cov_w, group = scenario, col = scenario), alpha = .4, lty = "dashed") +
   #geom_bar(aes(as.factor(round(N)), w, fill = scenario), stat = "identity", position = "fill") +
   geom_hline(aes(yintercept = .9), alpha = .4) +
-  ylim(c(0,1)) + xlab("N") + ylab("") +
+  ylim(c(0,1)) + xlab("N") + ylab("probability") +
   ggtitle(expression(paste("Coverage probability of ", hat(w)))) +
   theme_light() +
   theme(legend.title = element_blank(),
@@ -97,7 +97,9 @@ w_cov <- exp1_cov %>%
 
 (mu_cov + sigma_cov + pi_cov + w_cov) +
   plot_layout(ncol = 2, guides = "collect") &
-  theme(legend.position = "bottom")
+  theme(legend.position = "bottom",
+        axis.title = element_text(size = 12),
+        axis.text = element_text(size = 12))
 
 
 
@@ -119,7 +121,7 @@ mu_cov <- exp2_cov %>%
   geom_line(aes(tw, cov_mu, group = scenario, col = scenario), alpha = .4, lty = "dashed") +
   #geom_bar(aes(tw, mu, fill = scenario), stat = "identity", position = "fill") +
   geom_hline(aes(yintercept = .9), alpha = .4) +
-  ylim(c(0,1)) + xlab("w") + ylab("") +
+  ylim(c(0,1)) + xlab("w") + ylab("probability") +
   ggtitle(expression(paste("Coverage probability of ", hat(mu)))) +
   theme_light() +
   theme(legend.title = element_blank(),
@@ -138,7 +140,7 @@ sigma_cov <- exp2_cov %>%
   geom_line(aes(tw, cov_sigma, group = scenario, col = scenario), alpha = .4, lty = "dashed") +
   #geom_bar(aes(tw, sigma, fill = scenario), stat = "identity", position = "fill") +
   geom_hline(aes(yintercept = .9), alpha = .4) +
-  ylim(c(0,1)) + xlab("w") + ylab("") +
+  ylim(c(0,1)) + xlab("w") + ylab("probability") +
   ggtitle(expression(paste("Coverage probability of ", hat(sigma)))) +
   theme_light() +
   theme(legend.title = element_blank(),
@@ -157,7 +159,7 @@ pi_cov <- exp2_cov %>%
   geom_line(aes(tw, cov_pi, group = scenario, col = scenario), alpha = .4, lty = "dashed") +
   #geom_bar(aes(tw, pi, fill = scenario), stat = "identity", position = "fill") +
   geom_hline(aes(yintercept = .9), alpha = .4) +
-  ylim(c(0,1)) + xlab("w") + ylab("") +
+  ylim(c(0,1)) + xlab("w") + ylab("probability") +
   ggtitle(expression(paste("Coverage probability of ", hat(pi)))) +
   theme_light() +
   theme(legend.title = element_blank(),
@@ -176,7 +178,7 @@ w_cov <- exp2_cov %>%
   geom_line(aes(tw, cov_w, group = scenario, col = scenario), alpha = .4, lty = "dashed") +
   #geom_bar(aes(tw, w, fill = scenario), stat = "identity", position = "fill") +
   geom_hline(aes(yintercept = .9), alpha = .4) +
-  ylim(c(0,1)) + xlab("w") + ylab("") +
+  ylim(c(0,1)) + xlab("w") + ylab("probability") +
   ggtitle(expression(paste("Coverage probability of ", hat(w)))) +
   theme_light() +
   theme(legend.title = element_blank(),
@@ -190,4 +192,6 @@ w_cov <- exp2_cov %>%
 
 (mu_cov + sigma_cov + pi_cov + w_cov) +
   plot_layout(ncol = 2, guides = "collect") &
-  theme(legend.position = "bottom")
+  theme(legend.position = "bottom",
+        axis.title = element_text(size = 12),
+        axis.text = element_text(size = 12))
