@@ -33,7 +33,7 @@ plotOSI <- function(data, par, diseasenm) {
            fx = f1+f2)
   
   ggplot() + geom_histogram(aes(data, ..density..), binwidth = 1, col = "black", fill = "white") +
-    xlim(max(min(data)-2,0), max(data)+2) + labs(title = diseasenm, x = "", y = "") +
+    xlim(max(min(data)-2,0), max(data)+2) + labs(title = diseasenm, x = "days", y = "density") +
     geom_line(aes(x, fx), dt, col = "red", lwd = 1) +
     geom_line(aes(x, f1), dt, col = "dark green", lty = "dashed", lwd = 1) +
     geom_line(aes(x, f2), dt, col = "blue", lty = "dashed", lwd = 1) +
@@ -86,11 +86,11 @@ plt_h1n <- lapply(1:length(h1n1), function(i) plotOSI(h1n1[[i]], params[[i]], nm
 
 
 # combine all plots
-cov <- (plt_cov[[1]] + plt_cov[[2]] + plt_cov[[3]]) + plot_layout(nrow = 1)
-mea <- (plt_mea[[1]] + plt_mea[[2]] + plot_spacer()) + plot_layout(nrow = 1)
-mer <- (plt_mers[[1]] + plot_spacer() + plot_spacer()) + plot_layout(nrow = 1)
-h1n <- (plt_h1n[[1]] + plt_h1n[[2]] + plt_h1n[[3]]) + plot_layout(nrow = 1)
-
-cov / mea / mer / h1n
+(plt_cov[[1]] + plt_cov[[2]] + plt_cov[[3]] +
+  plt_mea[[1]] + plt_mea[[2]] + plt_mers[[1]] +
+    plt_h1n[[1]] + plt_h1n[[2]] + plt_h1n[[3]]) +
+  plot_layout(nrow = 3) +
+  theme(axis.text = element_text(size = 12),
+        axis.title = element_text(size = 12))
 
 
