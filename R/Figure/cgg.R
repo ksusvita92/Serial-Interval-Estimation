@@ -26,14 +26,14 @@ dt <- data.frame(x = rep(x, length(pi)),
 plt <- ggplot() +
   geom_line(aes(x = x, y = fx, group = pi, col = as.factor(pi)), dt) +
   geom_line(aes(x = x, y = dgamma(x, (par[1]/par[2])^2, par[1]/par[2]^2)), lty = "dashed") +
-  labs(y = "density", x = "") + theme_light() +
+  labs(y = "density", x = "days") + theme_light() +
   theme(legend.position = "bottom") +
   guides(color = guide_legend(override.aes = list(lwd = 1.5), title = expression(pi)))
 
 plt2 <- ggplot() +
   geom_line(aes(x = x, y = px, group = pi, col = as.factor(pi)), dt) +
   geom_line(aes(x = x, y = pgamma(x, (par[1]/par[2])^2, par[1]/par[2]^2)), lty = "dashed") +
-  labs(y = "cumulative distribution", x = "") + theme_light() +
+  labs(y = "cumulative distribution", x = "days") + theme_light() +
   theme(legend.position = "bottom") +
   guides(color = guide_legend(override.aes = list(lwd = 1.5), title = expression(pi)))
 
