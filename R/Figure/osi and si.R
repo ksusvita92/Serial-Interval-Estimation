@@ -44,7 +44,7 @@ osi <- lapply(c(1e2,5e2,1e3,5e3), function(n) {
   m <- dt$tmu[1]; s <- 1.5; p <- dt$tpi[1]; w <- .7
   xx <- data.frame(x = x, fx = w*dcgg(x,m,s,p)+(1-w)*dfgd(x,m,s))
   plt <- plt + geom_line(aes(x,fx), xx, col = "black") + theme_light() +
-    labs(title = paste("N", n, sep = "="), subtitle = "Observed serial interval")
+    labs(title = paste("N", n, sep = "="), subtitle = "Observed serial interval", y = "density", x = "days")
   plt
 })
 
@@ -66,7 +66,7 @@ tsi <- lapply(c(1e2,5e2,1e3,5e3), function(n) {
   a <- (m/s)^2; b <- m/s^2
   xx <- data.frame(x = x, fx = dgamma(x,a,b))
   plt <- plt + geom_line(aes(x,fx), xx, col = "black") + theme_light() +
-    labs(subtitle = "True serial interval")
+    labs(subtitle = "True serial interval", x = "days", y = "")
   plt
 })
 
@@ -74,4 +74,5 @@ tsi <- lapply(c(1e2,5e2,1e3,5e3), function(n) {
 (osi[[1]] + tsi[[1]] + osi[[2]] + tsi[[2]] +
     osi[[3]] + tsi[[3]] + osi[[4]] + tsi[[4]]) +
   plot_layout(nrow = 2, ncol = 4) &
-  theme(axis.title = element_blank())
+  theme(axis.title = element_text(size = 12),
+        axis.text = element_text(size = 12))
