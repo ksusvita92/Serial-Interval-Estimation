@@ -36,7 +36,7 @@ plt <- lapply(sigma, function(s) {
     annotate("text", x = Inf, y = Inf, vjust = 1.5, hjust = 1.5, label = bquote(sigma == .(s))) +
     scale_linetype_manual(name = "xx", values= c("FGD"="solid", "GDD"="dashed", "Gamma"="dotted")) +
     scale_color_manual(name = "xx", values= c("FGD"="red", "GDD"="dark green", "Gamma"="blue")) +
-    labs(x = "", y = "") + theme_light() +
+    labs(y = "density", x= "days") + theme_light() +
     theme(legend.position = "bottom")
 })
 
@@ -46,4 +46,4 @@ plt <- lapply(sigma, function(s) {
   theme(legend.position = "bottom",
         legend.title = element_blank(),
         legend.text = element_text(size = 12),
-        axis.text = element_text(size = 10))
+        axis.text = element_text(size = 12))
